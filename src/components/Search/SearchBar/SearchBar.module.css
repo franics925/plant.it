@@ -1,11 +1,13 @@
 input {
     color: rgb(30,30,30);
-    width: 300px;
+    width: 80%;
+    min-width: auto;
+    max-width: 500px;
     margin: 1em;
 }
 
 .SearchBar {
-    background-color: grey;
+    background-color: rgba(80,80,80,.5);
     position: -webkit-sticky;
     position: sticky;
     top:0;

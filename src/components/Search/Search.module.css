@@ -1,7 +1,7 @@
 .Search {
     display: flex;
     background-color: pink;
-    height: 35em;
+    min-height: 45em;
 }
 
 .SearchPanelLeft {
