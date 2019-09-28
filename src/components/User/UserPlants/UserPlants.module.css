@@ -1,0 +1,7 @@
+.UserPlants {
+    background-color: rgba(45,89,99, .8);
+    align-items: left;
+    width: 40%;
+    height: 15em;
+    overflow: auto;
+}
