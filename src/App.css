@@ -5,6 +5,13 @@
   color: white;
 }
 
+div {
+  border: 2px dotted green;
+  margin: 5px;
+  padding: 2px;
+
+}
+
 .App-logo {
   height: 40vmin;
 }

@@ -2,4 +2,9 @@ input {
     color: rgb(30,30,30);
     width: 300px;
     margin: 1em;
+    background-color: white;
+}
+
+.SearchBar {
+    background-color: white;
 }
