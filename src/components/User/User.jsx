@@ -6,6 +6,7 @@ import UserWishList from './UserWishList/UserWishList';
 class User extends Component {
     state = {
         UserPlants: [],
+
     };
 
     render() {
@@ -13,7 +14,9 @@ class User extends Component {
             <div className={style.User}>
                 User
                 <div>
-                    < UserPlants />
+                    < UserPlants 
+                        plants={this.props.plants}
+                    />
                     < UserWishList />
                 </div>
             </div>

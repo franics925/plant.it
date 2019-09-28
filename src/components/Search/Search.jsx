@@ -7,12 +7,16 @@ import style from './Search.module.css';
 
 const Search = (props) => (
     <div className={style.Search}>
-        <div className={style.SearchPanelLeft}>
-            < SearchFilters />
-        </div> 
-        <div className={style.SearchPanelRight}>
-            < SearchBar />
-            < SearchResults />
+        < SearchBar />
+        <div className={style.SearchPanels}>
+            <div className={style.SearchPanelLeft}>
+                < SearchFilters />
+            </div> 
+            <div className={style.SearchPanelRight}>
+                < SearchResults 
+                    plants={props.plants}
+                />
+            </div>
         </div>
     </div>
 );

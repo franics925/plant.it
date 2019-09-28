@@ -1,17 +1,25 @@
 .Search {
     display: flex;
+    flex-direction: column;
     background-color: pink;
+}
+
+.SearchPanels {
     min-height: 45em;
+    display: flex;
 }
 
 .SearchPanelLeft {
     background-color: orange;
-    width: 30%;
+    width: 23%;
+    min-width: 180px;
     overflow: auto;
 }
 
 .SearchPanelRight {
     background-color: mediumaquamarine;
-    width: 70%;
+    width: 77%;
     overflow: auto;
 }
+
+

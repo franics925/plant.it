@@ -3,19 +3,12 @@ import './App.css';
 import Search from './components/Search/Search';
 import User from './components/User/User'
 
+const plants=['Spider Plant', 'Philadendrum', 'Ficcus', 'Palm', 'Boston Fern'];
+
 class App extends Component{
   state = {
     SearchValue: '',
   }
-  handleSearch = (event) => {
-    console.log('search button clicked');
-    this.makeApiCall(this.state.searchValue);
-  };
-
-  handleOnChange = (event) => {
-      console.log('change in search bar')
-      console.log(event.searchValue);
-  };
 
   makeApiCall = searchInput => {
       // var searchUrl = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInput}`;
@@ -36,10 +29,14 @@ class App extends Component{
           <h1>plant.it</h1>
         </header>
         <div className="Search">
-          < Search />
+          < Search 
+            plants={plants}
+          />
         </div>
         <div className="User">
-          < User />
+          < User 
+            plants={plants}
+          />
         </div>
       </div>
     )
