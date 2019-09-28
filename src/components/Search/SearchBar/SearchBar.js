@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './SearchBar.module.css';
+import style from './SearchBar.module.css';
 // import { directive } from '@babel/types';
 
 class SearchBar extends Component {
@@ -31,11 +31,11 @@ class SearchBar extends Component {
 
     render() {
         return (
-            <div className='SearchBar'>
+            <div className={style.SearchBar}>
                 <input 
                     name="text"
                     type="text"
-                    placeholder="Search"
+                    placeholder="Search for a plant by common or scientific name"
                     onChange={event => this.handleOnChange(event)}
                     value={this.state.searchValue}
                 />

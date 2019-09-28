@@ -1,3 +1,17 @@
 .Search {
-    background-color: lightgrey;
+    display: flex;
+    background-color: pink;
+    height: 35em;
+}
+
+.SearchPanelLeft {
+    background-color: orange;
+    width: 30%;
+    overflow: auto;
+}
+
+.SearchPanelRight {
+    background-color: mediumaquamarine;
+    width: 70%;
+    overflow: auto;
 }
