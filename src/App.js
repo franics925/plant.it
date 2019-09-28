@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import SearchBar from './components/SearchBar/SearchBar';
+import Search from './components/Search/SearchBar/SearchBar';
 
 function App() {
   return (
@@ -9,13 +9,7 @@ function App() {
         <h1>plant.it</h1>
       </header>
       <div className="Search">
-        {/* <div className="SearchFilters">
-          < SearchFilters />
-        </div> */}
-        <div className="SearchBar">
-          < SearchBar />
-        </div>
-
+        < Search />
       </div>
       <div className="UserProfile">
         UserProfile
