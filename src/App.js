@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import Search from './components/Search/Search';
-import User from './components/User/User'
+// import User from './components/User/User'
 
-const plants=['Spider Plant', 'Philadendrum', 'Ficcus', 'Palm', 'Boston Fern'];
+const plants=['Spider Plant', 'Philodendron', 'Peace Lily', 'Devils Ivy', 'Ficcus', 'Palm', 'Boston Fern'];
 
 class App extends Component{
   state = {
@@ -33,11 +33,11 @@ class App extends Component{
             plants={plants}
           />
         </div>
-        <div className="User">
+        {/* <div className="User">
           < User 
             plants={plants}
           />
-        </div>
+        </div> */}
       </div>
     )
   };

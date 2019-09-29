@@ -7,7 +7,7 @@ const SearchResults = (props) => (
         SearchResults<br/>
         {/* < About /> */}
         <ul>
-            {props.plants.map((plant, idx) =>
+            {props.plants.sort().map((plant, idx) =>
                 <div 
                     className={style.SearchResult} 
                     key={idx}
@@ -19,7 +19,7 @@ const SearchResults = (props) => (
                         <button className={style.WishListButton}>WishList</button>
                         <button className={style.AddToPlantsButton}>AddToPlants</button>
                     </div>
-                </div>  
+                </div>
             )}
         </ul>
     </div>
