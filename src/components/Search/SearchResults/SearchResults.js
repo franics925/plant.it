@@ -12,9 +12,13 @@ const SearchResults = (props) => (
                     className={style.SearchResult} 
                     key={idx}
                     >
+                    <a href={`https://www.google.com/search?q=${plant}`} target="_blank" rel="noopener noreferrer" className={style.PlantLink}>    
                     {plant}
-                    <button className={style.WishListButton}>WishList</button>
-                    <button className={style.AddToPlantsButton}>AddToPlants</button>
+                    </a>
+                    <div className={style.Buttons}>
+                        <button className={style.WishListButton}>WishList</button>
+                        <button className={style.AddToPlantsButton}>AddToPlants</button>
+                    </div>
                 </div>  
             )}
         </ul>
