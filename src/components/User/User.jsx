@@ -13,12 +13,12 @@ class User extends Component {
         return(
             <div className={style.User}>
                 User
-                <div>
+
                     < UserPlants 
                         plants={this.props.plants}
                     />
                     < UserWishList />
-                </div>
+
             </div>
         )
     };

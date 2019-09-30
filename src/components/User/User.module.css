@@ -1,4 +1,6 @@
 .User {
+    display: flex;
+    flex-direction: row;
     background-color: olive;
     min-height:18em;
 }
