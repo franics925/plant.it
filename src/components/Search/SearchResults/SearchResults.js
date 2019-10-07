@@ -16,8 +16,7 @@ const SearchResults = (props) => (
                     {plant}
                     </a>
                     <div className={style.Buttons}>
-                        <button className={style.WishListButton}>WishList</button>
-                        <button className={style.AddToPlantsButton}>AddToPlants</button>
+                        <button className={style.AddToPlantsButton}>Add To My Plants</button>
                     </div>
                 </div>
             )}
