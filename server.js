@@ -19,6 +19,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 //Ensure that api routes are mounted before "catch all" routes
 app.use('/api/users', require('./routes/api/users'));
+app.use('/api/plants', require('./routes/api/plants'));
 
 //"catch all" route
 app.get('/*', function(req, res) {

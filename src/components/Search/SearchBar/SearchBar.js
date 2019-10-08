@@ -1,32 +1,28 @@
 import React, { Component } from 'react';
 import style from './SearchBar.module.css';
+import plantService from '../../../utils/plantService';
+
 // import { directive } from '@babel/types';
 
 class SearchBar extends Component {
     state = {
-        SearchValue:'',
+        results: [],
+        searchValue:'',
     };
 
-    handleSearch = (event) => {
+    handleSearch = async (event) => {
         console.log('search button clicked');
-        this.makeApiCall(this.state.searchValue);
+        let results = await plantService.search().then(res => JSON.parse(res));
+        
+        this.setState({ 
+            results,
+            searchValue: '' 
+        })
     };
 
     handleOnChange = (event) => {
         console.log('change in search bar')
         console.log(event.searchValue);
-    };
-
-    makeApiCall = searchInput => {
-        // var searchUrl = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInput}`;
-        // fetch(searchUrl)
-        // .then(response => {
-        // return response.json();
-        // })
-        // .then(jsonData => {
-        // console.log(jsonData);
-        
-        // });
     };
 
     render() {

@@ -15,6 +15,7 @@ const plants=['Spider Plant', 'Philodendron', 'Peace Lily', 'Devils Ivy', 'Ficcu
 class App extends Component{
   state = {
     SearchValue: '',
+    plants: [],
   }
 
   makeApiCall = searchInput => {
@@ -28,6 +29,15 @@ class App extends Component{
       
       // });
   };
+
+  componentDidMount() {
+    fetch('')
+    .then(res => res.json())
+    .then((data) => {
+      this.setState({ plants: data})
+    })
+    .catch(console.log)
+  }
 
 
   handleSignupOrLogin = () => {

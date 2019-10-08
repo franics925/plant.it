@@ -10,6 +10,7 @@
     "bulma": "^0.7.5",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
+    "fetch": "^1.1.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.3",
     "morgan": "^1.9.1",
@@ -19,6 +20,7 @@
     "react-modal": "^3.10.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.1.2",
+    "request": "^2.88.0",
     "serve-favicon": "^2.5.0"
   },
   "scripts": {
