@@ -9,26 +9,12 @@ import SignupPage from '../SignupPage/SignupPage';
 import userService from '../../utils/userService';
 import LoginPage from '../LoginPage/LoginPage';
 
-
-const plants=['Spider Plant', 'Philodendron', 'Peace Lily', 'Devils Ivy', 'Ficcus', 'Palm', 'Boston Fern'];
-
 class App extends Component{
   state = {
     SearchValue: '',
     plants: [],
+    user: userService.getUser()
   }
-
-  makeApiCall = searchInput => {
-      // var searchUrl = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInput}`;
-      // fetch(searchUrl)
-      // .then(response => {
-      // return response.json();
-      // })
-      // .then(jsonData => {
-      // console.log(jsonData);
-      
-      // });
-  };
 
   componentDidMount() {
     fetch('')
@@ -43,6 +29,11 @@ class App extends Component{
   handleSignupOrLogin = () => {
     this.setState({user: userService.getUser()});
   }
+
+  handleLogout = () => {
+    userService.logout();
+    this.setState({ user: null });
+  }
   
   render() {
     return (
@@ -55,27 +46,22 @@ class App extends Component{
               <Search
                 handleLogout={this.handleLogout}
                 user={this.state.user}
-                plants ={plants}
               />
             }/>
 
-            {/* <div className="Search">
-              < Search 
-                plants={plants}
-              />
-            </div> */}
-
             <Route exact path='/user' render={() => (
-              <User/>
+              <User
+                user={this.state.user}
+              />
             )}/>
 
+            }/>
             <Route exact path='/signup' render={({ history }) => 
               <SignupPage
                 history={history}
                 handleSignupOrLogin={this.handleSignupOrLogin}
               />
             }/>
-
             <Route exact path='/login' render={({ history }) => 
               <LoginPage
                 history={history}
@@ -91,3 +77,21 @@ class App extends Component{
 }
 
 export default App;
+
+
+
+
+
+
+
+  // makeApiCall = searchInput => {
+  //     // var searchUrl = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInput}`;
+  //     // fetch(searchUrl)
+  //     // .then(response => {
+  //     // return response.json();
+  //     // })
+  //     // .then(jsonData => {
+  //     // console.log(jsonData);
+      
+  //     // });
+  // };

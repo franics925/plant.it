@@ -3,6 +3,7 @@ import style from './SearchResults.module.css';
 // import About from '../../About/About';
 
 const SearchResults = (props) => (
+    // const listItems = props.searchResults.map((d) => <li key={d.id}>{d.common_name}</li>);
     <div className={style.SearchResults}>
         SearchResults<br/>
         {/* < About /> */}
@@ -20,6 +21,7 @@ const SearchResults = (props) => (
                     </div>
                 </div>
             )}
+            {/* {props.searchResults[0]} */}
         </ul>
     </div>
 )
