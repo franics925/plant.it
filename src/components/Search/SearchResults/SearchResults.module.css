@@ -2,9 +2,11 @@
     background-color: salmon;
     height:100%;
     overflow: auto;
+    color: black;
 }
 
 .SearchResult {
+    color: black;
     display: flex;
     justify-content: space-between;
     margin: .4em;

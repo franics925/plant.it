@@ -5,7 +5,6 @@ import SearchResults from './SearchResults/SearchResults';
 import style from './Search.module.css';
 import plantService from '../../utils/plantService';
 
-const plants=['Spider Plant', 'Philodendron', 'Peace Lily', 'Devils Ivy', 'Ficcus', 'Palm', 'Boston Fern'];
 
 class Search extends Component {
     state = {
@@ -23,7 +22,15 @@ class Search extends Component {
         })
     };
 
+    handleFilters = async (event) => {
+        console.log('AdjustFilters button clicked')
+    }
+
     handleOnChange = (event) => {
+        this.setState({
+            query: (event.searchValue)
+        })
+
         console.log('change in search bar')
         console.log(event.searchValue);
     };
@@ -44,9 +51,7 @@ class Search extends Component {
                     </div> 
                     <div className={style.SearchPanelRight}>
                         < SearchResults 
-                            searchResults={this.state.searchResults}
-                            plants={plants}
-                        />
+                            searchResults={this.state.searchResults}                        />
                     </div>
                 </div>
             </div>

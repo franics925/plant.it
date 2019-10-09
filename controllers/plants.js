@@ -1,10 +1,10 @@
 var request = require('request');
-const Plant = require('../models/plant');
-const rootURL= '"http://trefle.io/api/plants/';
+// const Plant = require('../models/plant');
+// const rootURL= '"http://trefle.io/api/plants/';
 const TREFLE_TOKEN = process.env.TREFLE_TOKEN;
 // import {fetchUrl} from 'fetch';
 
-var fetch = require("fetch").fetchUrl;
+// var fetch = require("fetch").fetchUrl;
 
 
 module.exports = {
@@ -12,9 +12,6 @@ module.exports = {
 };
 
 function searchResults(req, res) {
-    // console.log('plant: ', req.body.plant)
-    https://trefle.io/api/plants?token=&common_name=blackwood
-
     try {
         request(`https://trefle.io/api/plants?token=${TREFLE_TOKEN}&common_name=daisy`, (err, meta, body) => {
             if (err) console.log(err);
