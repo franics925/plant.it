@@ -3,18 +3,18 @@ import style from './SearchResults.module.css';
 // import About from '../../About/About';
 
 const SearchResults = (props) => (
-    // const listItems = props.searchResults.map((d) => <li key={d.id}>{d.common_name}</li>);
+    // let listItems = this.props.searchResults[0].common_name;
     <div className={style.SearchResults}>
         SearchResults<br/>
         {/* < About /> */}
         <ul>
-            {props.plants.sort().map((plant, idx) =>
+            {props.searchResults.sort().map((plant, idx) =>
                 <div 
                     className={style.SearchResult} 
                     key={idx}
                     >
-                    <a href={`https://www.google.com/search?q=${plant}`} target="_blank" rel="noopener noreferrer" className={style.PlantLink}>    
-                    {plant}
+                    <a href={`https://www.google.com/search?q=${plant.common_name}`} target="_blank" rel="noopener noreferrer" className={style.PlantLink}>    
+                    {plant.common_name}
                     </a>
                     <div className={style.Buttons}>
                         <button className={style.AddToPlantsButton}>Add To My Plants</button>

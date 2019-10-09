@@ -3,7 +3,6 @@ import style from './SearchBar.module.css';
 // import { directive } from '@babel/types';
 
 const SearchBar = (props) => {
-
     return (
         <div className={style.SearchBar}>
                 <input 
@@ -17,7 +16,6 @@ const SearchBar = (props) => {
                 Search
                 </button>
         </div>
-
     );
 };
 

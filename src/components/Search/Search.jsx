@@ -5,9 +5,7 @@ import SearchResults from './SearchResults/SearchResults';
 import style from './Search.module.css';
 import plantService from '../../utils/plantService';
 
-
 const plants=['Spider Plant', 'Philodendron', 'Peace Lily', 'Devils Ivy', 'Ficcus', 'Palm', 'Boston Fern'];
-
 
 class Search extends Component {
     state = {
