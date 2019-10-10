@@ -10,7 +10,20 @@ const TREFLE_TOKEN = process.env.TREFLE_TOKEN;
 function searchResults(req, res) {
     try {
         searchQuery = req.query.q
-        request(`https://trefle.io/api/plants?token=${TREFLE_TOKEN}&q=${searchQuery}&limit=20`, (err, meta, body) => {
+        request(`https://trefle.io/api/plants?token=${TREFLE_TOKEN}&q=${searchQuery}`, (err, meta, body) => {
+            if (err) console.log(err);
+            res.json(body);
+        });
+    } catch (error) {
+        console.log(error);
+    }
+    
+}
+
+function plantDetails(req, res) {
+    try {
+        plantQuery = req.query.qp
+        request(`https://trefle.io/api/plants?token=${TREFLE_TOKEN}&qp=${searchQuery}`, (err, meta, body) => {
             if (err) console.log(err);
             res.json(body);
         });
@@ -22,20 +35,6 @@ function searchResults(req, res) {
 
 module.exports = {
     searchResults,
+    plantDetails
 };
 
-
-// // make a request to the api using the key
-// request(categoriesURL, function(err, response, body) {
-//     // if the res works, send the data
-//     if (req.query) {
-//         request(`https://trefle.io/api/plants?token=${TREFLE_KEY}&common_name=blackwood`, function(err, response, body) {
-//             const plant = JSON.parse(body)
-//             res.render('Search', {plant: plant.common_name});
-//         });
-//     // if it doesnt, send an error and a message
-//     } else {
-//         res.render('Search', {plant: null});
-//     }
-    
-// });

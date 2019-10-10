@@ -41,7 +41,6 @@ class App extends Component{
         <div className="App">
           < NavBar />
           <Switch>
-
             <Route exact path='/' render={() =>
               <Search
                 handleLogout={this.handleLogout}

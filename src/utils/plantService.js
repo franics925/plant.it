@@ -1,7 +1,22 @@
 const BASE_URL='/api/plants/';
 
 function search(query) {
-    return fetch(`${BASE_URL}search?q=${query}`)
+    return fetch(`${BASE_URL}search?q=${query}`, {
+        headers : { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+           }    
+    })
+    .then(res => {
+        if (res.ok) return res.json();
+    })
+    .then(data => {
+        return data;
+    })
+}
+
+function queryPlant(pQuery) {
+    return fetch(`${BASE_URL}qp=${pQuery}`)
     .then(res => {
         if (res.ok) return res.json();
     })
@@ -12,4 +27,5 @@ function search(query) {
 
 export default {
     search,
+    queryPlant
 }

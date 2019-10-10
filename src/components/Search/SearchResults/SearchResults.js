@@ -5,7 +5,6 @@ const TREFLE_TOKEN = "REMwZDF3cStYN28vZkJTeU9tWm9Bdz09";
 // import About from '../../About/About';
 
 const SearchResults = (props) => (
-    // let listItems = this.props.searchResults[0].common_name;
     <div className={style.SearchResults}>
         SearchResults<br/>
         {/* < About /> */}
@@ -28,15 +27,15 @@ const SearchResults = (props) => (
 
                     <div className={style.Buttons}>
                         <button 
-                            className={style.AddToPlantsButton}
-                            onClick={props.handleAddToPlants}
+                            className={style.PlantDetailsButton}
+                            onClick={() => props.handlePlantDetails(plant)}
+
                         >
-                        Add To My Plants
+                        Plant Details
                         </button>
                     </div>
                 </div>
             )}
-            {/* {props.searchResults[0]} */}
         </ul>
     </div>
 )
