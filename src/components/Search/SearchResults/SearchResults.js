@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './SearchResults.module.css';
 
-const TREFLE_TOKEN = process.env.TREFLE_TOKEN;
+const TREFLE_TOKEN = "REMwZDF3cStYN28vZkJTeU9tWm9Bdz09";
 // import About from '../../About/About';
 
 const SearchResults = (props) => (
@@ -15,14 +15,9 @@ const SearchResults = (props) => (
                     className={style.SearchResult} 
                     key={idx}
                 >
-                    <div className={style.commonName}>
-                        <h3>Common Name:</h3>
-                        <h5>{plant.common_name}</h5>
-                    </div>
-
-                    <div className={style.ScientificName}>
-                        <h3>Scientific Name:</h3>
-                        <h5>{plant.scientific_name}</h5>
+                    <div className={style.PlantNames}>
+                        <h3>{plant.common_name}</h3>
+                        <a href={`https://www.google.com/search?q=${plant.scientific_name}`} target="_blank" rel="noopener noreferrer" className={style.PlantLink}>{plant.scientific_name}</a>
                     </div>
 
                     <a href={`${plant.link}?token=${TREFLE_TOKEN}`} target="_blank" rel="noopener noreferrer" className={style.PlantLink}>    
@@ -32,7 +27,12 @@ const SearchResults = (props) => (
                     Plant ID:<br/>{plant.id}
 
                     <div className={style.Buttons}>
-                        <button className={style.AddToPlantsButton}>Add To My Plants</button>
+                        <button 
+                            className={style.AddToPlantsButton}
+                            onClick={props.handleAddToPlants}
+                        >
+                        Add To My Plants
+                        </button>
                     </div>
                 </div>
             )}

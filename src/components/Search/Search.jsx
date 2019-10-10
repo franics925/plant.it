@@ -10,29 +10,40 @@ class Search extends Component {
     state = {
         searchResults: [],
         query: '',
+        loading: false
     };
 
     handleSearch = async (event) => {
         console.log('search button clicked');
-        let searchResults = await plantService.search().then(res => JSON.parse(res));
+        console.log(`query ${this.state.query}`);
+        this.setState({
+            loading: true,
+            searchResults: []
+        })
+        let searchResults = await plantService.search(this.state.query).then(res => JSON.parse(res));
         
         this.setState({ 
             searchResults: searchResults,
+            loading: false
             // query: this.search.value
         })
     };
-
+    
     handleFilters = async (event) => {
         console.log('AdjustFilters button clicked')
     }
 
+    handleAddToPlants =(event) => {
+        console.log('Add ToMyPlants Button Clicked')
+    }
+    
     handleOnChange = (event) => {
         this.setState({
-            query: (event.searchValue)
+            query: (event.target.value)
         })
 
         console.log('change in search bar')
-        console.log(event.searchValue);
+        console.log(event.target.value);
     };
 
     render() {
@@ -43,6 +54,7 @@ class Search extends Component {
                     handleOnChange={this.handleOnChange}
 
                 />
+                {this.state.loading && <text>search loading</text>}
                 <div className={style.SearchPanels}>
                     <div className={style.SearchPanelLeft}>
                         < SearchFilters 
@@ -50,8 +62,10 @@ class Search extends Component {
                         />
                     </div> 
                     <div className={style.SearchPanelRight}>
-                        < SearchResults 
-                            searchResults={this.state.searchResults}                        />
+                        < SearchResults
+                            handleAddToPlants={this.handleAddToPlants}
+                            searchResults={this.state.searchResults} 
+                        />
                     </div>
                 </div>
             </div>

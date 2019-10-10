@@ -7,21 +7,22 @@ const TREFLE_TOKEN = process.env.TREFLE_TOKEN;
 // var fetch = require("fetch").fetchUrl;
 
 
-module.exports = {
-    searchResults,
-};
-
 function searchResults(req, res) {
     try {
-        request(`https://trefle.io/api/plants?token=${TREFLE_TOKEN}&common_name=daisy`, (err, meta, body) => {
+        searchQuery = req.query.q
+        request(`https://trefle.io/api/plants?token=${TREFLE_TOKEN}&q=${searchQuery}&limit=20`, (err, meta, body) => {
             if (err) console.log(err);
             res.json(body);
         });
     } catch (error) {
         console.log(error);
     }
-
+    
 }
+
+module.exports = {
+    searchResults,
+};
 
 
 // // make a request to the api using the key
