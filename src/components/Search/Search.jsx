@@ -22,6 +22,8 @@ class Search extends Component {
         this.setState({
             searchLoading: true,
             searchResults: [],
+            plantSelectedDetails: [],
+            plantSelectedId: '',
         })
         let searchResults = await plantService.search(this.state.query).then(res => JSON.parse(res));
         
@@ -32,6 +34,14 @@ class Search extends Component {
         })
     };
     
+    handleOnChange = (event) => {
+        this.setState({
+            query: (event.target.value)
+        })
+
+        console.log('change in search bar')
+        console.log(event.target.value);
+    };
 
     handlePlantDetails = async (plant) => {
         console.log('PlantDetails button clicked', plant.id);
@@ -47,14 +57,6 @@ class Search extends Component {
         })
     };
     
-    handleOnChange = (event) => {
-        this.setState({
-            query: (event.target.value)
-        })
-
-        console.log('change in search bar')
-        console.log(event.target.value);
-    };
 
     render() {
         return (
@@ -64,6 +66,7 @@ class Search extends Component {
                     handleOnChange={this.handleOnChange}
 
                 />
+
                 {this.state.searchLoading && <text>search loading</text>}
                 <div className={style.SearchPanels}>
                     <div className={style.SearchPanelLeft}>

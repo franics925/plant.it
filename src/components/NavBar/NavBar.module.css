@@ -21,4 +21,17 @@
     color: darkgrey;
     background-color: white;
     padding: 1em;
+    height:10px
+  }
+
+  .LeftNav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .LeftNav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }

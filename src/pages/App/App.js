@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../App/App.css';
 import Search from '../../components/Search/Search';
 import User from '../../components/User/User';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch,} from 'react-router-dom';
 // import SearchPage from '../../pages/SearchPage/SearchPage';
 import NavBar from '../../components/NavBar/NavBar';
 import SignupPage from '../SignupPage/SignupPage';

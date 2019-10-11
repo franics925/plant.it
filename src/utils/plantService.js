@@ -5,7 +5,8 @@ function search(query) {
         headers : { 
             'Content-Type': 'application/json',
             'Accept': 'application/json'
-           }    
+           }
+    
     })
     .then(res => {
         if (res.ok) return res.json();
@@ -16,7 +17,7 @@ function search(query) {
 }
 
 function queryPlant(pQuery) {
-    return fetch(`${BASE_URL}qp=${pQuery}`)
+    return fetch(`${BASE_URL}plant/${pQuery}`)
     .then(res => {
         if (res.ok) return res.json();
     })

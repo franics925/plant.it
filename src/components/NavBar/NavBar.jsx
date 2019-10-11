@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import style from './NavBar.module.css';
+import SearchBar from '../Search/SearchBar/SearchBar';
 
 
 
 
 const NavBar = (props) => {
 
-    let nav = props.user ?
+    let userStatus = props.user ?
       <div>
         <Link to='' className='NavBar-link' onClick={props.handleLogout}>LOG OUT</Link>
         &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -26,9 +27,11 @@ const NavBar = (props) => {
   
     return (
       <div className={style.NavBar}>
-          
-        <h1>plant.it</h1>
-        {nav}
+        <div className={style.LeftNav}>
+          <h1>plant.it</h1>
+          < SearchBar />
+        </div>
+        {userStatus}
       </div>
     );
   };
