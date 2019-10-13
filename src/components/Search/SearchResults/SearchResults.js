@@ -9,6 +9,7 @@ const SearchResults = (props) => (
         SearchResults<br/>
         {/* < About /> */}
         <ul>
+        {props.searchLoading && <text>search loading</text>}
             {props.searchResults.sort().map((plant, idx) =>
                 <div 
                     className={style.SearchResult} 
@@ -29,7 +30,6 @@ const SearchResults = (props) => (
                         <button 
                             className={style.PlantDetailsButton}
                             onClick={() => props.handlePlantDetails(plant)}
-
                         >
                         Plant Details
                         </button>

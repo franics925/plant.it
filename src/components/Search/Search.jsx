@@ -50,7 +50,8 @@ class Search extends Component {
             plantSelectedId: plant.id
 
         })
-        let plantDetails = await plantService.queryPlant(plant.id).then(res => JSON.parse(res));
+        let plantDetails = await plantService.queryPlant(plant.id)
+            .then(res => JSON.parse(res));
         
         this.setState({
             plantSelectedDetails: plantDetails
@@ -66,21 +67,20 @@ class Search extends Component {
                     handleOnChange={this.handleOnChange}
 
                 />
-
-                {this.state.searchLoading && <text>search loading</text>}
                 <div className={style.SearchPanels}>
                     <div className={style.SearchPanelLeft}>
+                        < SearchResults
+                            handlePlantDetails={this.handlePlantDetails}
+                            searchResults={this.state.searchResults} 
+                            searchLoading={this.state.searchLoading}
+                        />
+                    </div>
+                    <div className={style.SearchPanelRight}>
                         < PlantDetails
                             plantSelectedId={this.state.plantSelectedId}
                             plantSelectedDetails={this.state.plantSelectedDetails}
                         />
                     </div> 
-                    <div className={style.SearchPanelRight}>
-                        < SearchResults
-                            handlePlantDetails={this.handlePlantDetails}
-                            searchResults={this.state.searchResults} 
-                        />
-                    </div>
                 </div>
             </div>
         )

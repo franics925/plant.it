@@ -11,10 +11,56 @@ import LoginPage from '../LoginPage/LoginPage';
 
 class App extends Component{
   state = {
-    SearchValue: '',
-    plants: [],
+    searchResults: [],
+    query: '',
+    searchLoading: false,
+    plantSelectedDetails: [],
+    plantSelectedId: '',
     user: userService.getUser()
   }
+
+    // handleSearch = async (event) => {
+    //     console.log('search button clicked');
+    //     console.log(`query ${this.state.query}`);
+    //     this.setState({
+    //         searchLoading: true,
+    //         searchResults: [],
+    //         plantSelectedDetails: [],
+    //         plantSelectedId: '',
+    //     })
+    //     let searchResults = await plantService.search(this.state.query).then(res => JSON.parse(res));
+        
+    //     this.setState({ 
+    //         searchResults: searchResults,
+    //         searchLoading: false
+    //         // query: this.search.value
+    //     })
+    // };
+    
+    // handleOnChange = (event) => {
+    //     this.setState({
+    //         query: (event.target.value)
+    //     })
+
+    //     console.log('change in search bar')
+    //     console.log(event.target.value);
+    // };
+
+    // handlePlantDetails = async (plant) => {
+    //     console.log('PlantDetails button clicked', plant.id);
+    //     this.setState({
+    //         plantSelectedDetails: [],
+    //         plantSelectedId: plant.id
+
+    //     })
+    //     let plantDetails = await plantService.queryPlant(plant.id)
+    //         .then(res => JSON.parse(res));
+        
+    //     this.setState({
+    //         plantSelectedDetails: plantDetails
+    //     })
+    // };
+
 
   componentDidMount() {
     fetch('')
@@ -39,7 +85,9 @@ class App extends Component{
     return (
       <div>
         <div className="App">
-          < NavBar />
+          < NavBar 
+            {...this.state}
+          />
           <Switch>
             <Route exact path='/' render={() =>
               <Search

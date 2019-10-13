@@ -8,10 +8,21 @@ const PlantDetails = (props) => (
     {props.selectedPlantDetails}
         {}
         <ul>
-            <div className={style.PlantImages}>
-                
-                {/* <img src={`${props.props.plantSelectedDetails.images[0].url}`}  alt="Smiley face" height="42" width="42"></img> */}
-            </div>
+        <div className={style.Images}>
+                <h4>Pic links:  </h4>
+                <p>{
+                    props.plantSelectedDetails.images ? 
+                    props.plantSelectedDetails.images.map((image, idx) =>
+                        <div
+                            className={style.Images}
+                            key={idx}
+                        >
+                            <p>{image.url}</p>
+                        </div>
+                    ) : `No Data Exists`
+                }
+                </p>
+            </div><hr/>
 
             <div className={style.CommonName}>
                 <h4>Common Name:  </h4>
@@ -20,7 +31,7 @@ const PlantDetails = (props) => (
                     props.plantSelectedDetails.common_name : `No Data Exists`
                 }
                 </p>
-            </div>
+            </div><hr/>
 
             <div className={style.ScientificName}>
                 <h4>Scientific Name:  </h4>
@@ -29,7 +40,7 @@ const PlantDetails = (props) => (
                     props.plantSelectedDetails.scientific_name : `No Data Exists`
                 }
                 </p>
-            </div>
+            </div><hr/>
 
             <div className={style.FamilyCommonName}>
                 <h4>Family:  </h4>
@@ -48,8 +59,8 @@ const PlantDetails = (props) => (
                     </h6>
                     <p>
                         {
-                            props.plantSelectedDetails.family_common_name ? 
-                            props.plantSelectedDetails.family_common_name : `No Data Exists`
+                            props.plantSelectedDetails.family ? 
+                            props.plantSelectedDetails.family.name : `No Data Exists`
                         }
                     </p>
                 </p>
@@ -89,6 +100,8 @@ const PlantDetails = (props) => (
                 }
                 </p>
             </div>
+
+
 
             {/* <div className={style.PlantClass}>
                 {props.Plant}

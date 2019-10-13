@@ -2,23 +2,27 @@
     display: flex;
     flex-direction: column;
     background-color: pink;
+    height: 100%;
 }
 
 .SearchPanels {
     min-height: 45em;
     display: flex;
+    padding-left: 2em;
+    padding-right: 2em;
 }
 
-.SearchPanelLeft {
+.SearchPanelLeft{
+    background-color: mediumaquamarine;
+    width: 77%;
+    overflow: auto;
+    
+}
+.SearchPanelRight {
+    
     background-color: orange;
     width: 23%;
     min-width: 180px;
-    overflow: auto;
-}
-
-.SearchPanelRight {
-    background-color: mediumaquamarine;
-    width: 77%;
     overflow: auto;
 }
 
