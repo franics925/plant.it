@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './PlantDetails.module.css';
 import Preloader from '../../Preloader/Preloader';
+const TREFLE_TOKEN = "REMwZDF3cStYN28vZkJTeU9tWm9Bdz09";
 
 const PlantDetails = (props) => (
 
@@ -16,10 +17,10 @@ const PlantDetails = (props) => (
                     props.plantSelectedDetails.images ? 
                     props.plantSelectedDetails.images.map((image, idx) =>
                         <div
-                            className={style.Images}
+                            className={style.Image}
                             key={idx}
                         >
-                            <p>{image.url}</p>
+                            <img src={`${image.url}`}></img>
                         </div>
                     ) : `No Data Exists`
                 }
@@ -68,12 +69,40 @@ const PlantDetails = (props) => (
                 </p>
             </div><hr/>
 
+            <div className={style.Genus}>
+                <h4>Genus:  </h4>
+                <p>{
+                    props.plantSelectedDetails.genus? 
+                    <a href={`${props.plantSelectedDetails.genus.link}?token=${TREFLE_TOKEN}`}
+                      target="_blank" rel="noopener noreferrer"
+                    >
+                      {props.plantSelectedDetails.genus.name}
+                    </a> 
+                    : `No Data Exists`
+                }
+                </p>
+            </div><hr/>
+            
+            <div className={style.Order}>
+                <h4>Order:  </h4>
+                <p>{
+                    props.plantSelectedDetails.order? 
+                    <a href={`${props.plantSelectedDetails.order.link}?token=${TREFLE_TOKEN}`}
+                      target="_blank" rel="noopener noreferrer"
+                      >
+                      {props.plantSelectedDetails.order.name}
+                    </a> 
+                    : `No Data Exists`
+                }
+                </p>
+            </div><hr/>
 
             <div className={style.Duration}>
                 <h4>Duration:  </h4>
                 <p>{
                     props.plantSelectedDetails.duration ? 
-                    props.plantSelectedDetails.duration : `No Data Exists`
+                    props.plantSelectedDetails.duration 
+                    : `No Data Exists`
                 }
                 </p>
             </div><hr/>
@@ -102,29 +131,6 @@ const PlantDetails = (props) => (
                 }
                 </p>
             </div>
-
-
-
-            {/* <div className={style.PlantClass}>
-                {props.Plant}
-            </div> */}
-        
-
-            {/* {for (var property in plant) {
-                if object.hasOwnProperty(property){
-                    console.log(property)
-                }
-            }}
-
-            {props.plantSelectedDetails.map((detail, idx) =>
-
-                    <div 
-                        className={style.commonName}
-                        key={idx}
-                    > 
-                        <h3>{detail, idx}</h3>
-                    </div>
-            )} */}
         </ul>
     </div>
 )
