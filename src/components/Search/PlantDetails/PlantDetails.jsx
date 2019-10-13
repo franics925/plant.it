@@ -1,5 +1,6 @@
 import React from 'react';
 import style from './PlantDetails.module.css';
+import Preloader from '../../Preloader/Preloader';
 
 const PlantDetails = (props) => (
 
@@ -8,6 +9,7 @@ const PlantDetails = (props) => (
     {props.selectedPlantDetails}
         {}
         <ul>
+        {props.plantDetailsLoading && < Preloader />}
         <div className={style.Images}>
                 <h4>Pic links:  </h4>
                 <p>{
@@ -64,7 +66,7 @@ const PlantDetails = (props) => (
                         }
                     </p>
                 </p>
-            </div>
+            </div><hr/>
 
 
             <div className={style.Duration}>
@@ -74,7 +76,7 @@ const PlantDetails = (props) => (
                     props.plantSelectedDetails.duration : `No Data Exists`
                 }
                 </p>
-            </div>
+            </div><hr/>
 
             <div className={style.NativeStatus}>
                 <h4>Native Status:  </h4>
@@ -83,7 +85,7 @@ const PlantDetails = (props) => (
                     props.plantSelectedDetails.native_status : `No Data Exists`
                 }
                 </p>
-            </div>
+            </div><hr/>
 
             <div className={style.Varieties}>
                 <h4>Varities:  </h4>

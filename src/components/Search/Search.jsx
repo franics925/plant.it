@@ -1,84 +1,27 @@
 import React, { Component } from 'react';
-import SearchBar from './SearchBar/SearchBar';
 import PlantDetails from './PlantDetails/PlantDetails';
 import SearchResults from './SearchResults/SearchResults';
 import style from './Search.module.css';
-import plantService from '../../utils/plantService';
 
 
 
 class Search extends Component {
-    state = {
-        searchResults: [],
-        query: '',
-        searchLoading: false,
-        plantSelectedDetails: [],
-        plantSelectedId: '',
-    };
-
-    handleSearch = async (event) => {
-        console.log('search button clicked');
-        console.log(`query ${this.state.query}`);
-        this.setState({
-            searchLoading: true,
-            searchResults: [],
-            plantSelectedDetails: [],
-            plantSelectedId: '',
-        })
-        let searchResults = await plantService.search(this.state.query).then(res => JSON.parse(res));
-        
-        this.setState({ 
-            searchResults: searchResults,
-            searchLoading: false
-            // query: this.search.value
-        })
-    };
-    
-    handleOnChange = (event) => {
-        this.setState({
-            query: (event.target.value)
-        })
-
-        console.log('change in search bar')
-        console.log(event.target.value);
-    };
-
-    handlePlantDetails = async (plant) => {
-        console.log('PlantDetails button clicked', plant.id);
-        this.setState({
-            plantSelectedDetails: [],
-            plantSelectedId: plant.id
-
-        })
-        let plantDetails = await plantService.queryPlant(plant.id)
-            .then(res => JSON.parse(res));
-        
-        this.setState({
-            plantSelectedDetails: plantDetails
-        })
-    };
-    
-
     render() {
         return (
             <div className={style.Search}>
-                < SearchBar
-                    handleSearch={this.handleSearch}
-                    handleOnChange={this.handleOnChange}
-
-                />
                 <div className={style.SearchPanels}>
                     <div className={style.SearchPanelLeft}>
                         < SearchResults
-                            handlePlantDetails={this.handlePlantDetails}
-                            searchResults={this.state.searchResults} 
-                            searchLoading={this.state.searchLoading}
+                            handlePlantDetails={this.props.handlePlantDetails}
+                            searchResults={this.props.searchResults} 
+                            searchLoading={this.props.searchLoading}
                         />
                     </div>
                     <div className={style.SearchPanelRight}>
                         < PlantDetails
-                            plantSelectedId={this.state.plantSelectedId}
-                            plantSelectedDetails={this.state.plantSelectedDetails}
+                            plantSelectedId={this.props.plantSelectedId}
+                            plantSelectedDetails={this.props.plantSelectedDetails}
+                            plantDetailsLoading={this.props.plantDetailsLoading}
                         />
                     </div> 
                 </div>

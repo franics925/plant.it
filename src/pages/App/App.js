@@ -8,58 +8,62 @@ import NavBar from '../../components/NavBar/NavBar';
 import SignupPage from '../SignupPage/SignupPage';
 import userService from '../../utils/userService';
 import LoginPage from '../LoginPage/LoginPage';
+import plantService from '../../utils/plantService';
 
 class App extends Component{
   state = {
     searchResults: [],
     query: '',
     searchLoading: false,
+    plantDetailsLoading: false,
     plantSelectedDetails: [],
     plantSelectedId: '',
     user: userService.getUser()
   }
 
-    // handleSearch = async (event) => {
-    //     console.log('search button clicked');
-    //     console.log(`query ${this.state.query}`);
-    //     this.setState({
-    //         searchLoading: true,
-    //         searchResults: [],
-    //         plantSelectedDetails: [],
-    //         plantSelectedId: '',
-    //     })
-    //     let searchResults = await plantService.search(this.state.query).then(res => JSON.parse(res));
+    handleSearch = async (event) => {
+        console.log('search button clicked');
+        console.log(`query ${this.state.query}`);
+        this.setState({
+            searchLoading: true,
+            searchResults: [],
+            plantSelectedDetails: [],
+            plantSelectedId: '',
+        })
+        let searchResults = await plantService.search(this.state.query).then(res => JSON.parse(res));
         
-    //     this.setState({ 
-    //         searchResults: searchResults,
-    //         searchLoading: false
-    //         // query: this.search.value
-    //     })
-    // };
+        this.setState({ 
+            searchResults: searchResults,
+            searchLoading: false
+            // query: this.search.value
+        })
+    };
     
-    // handleOnChange = (event) => {
-    //     this.setState({
-    //         query: (event.target.value)
-    //     })
+    handleOnChange = (event) => {
+        this.setState({
+            query: (event.target.value)
+        })
 
-    //     console.log('change in search bar')
-    //     console.log(event.target.value);
-    // };
+        console.log('change in search bar')
+        console.log(event.target.value);
+    };
 
-    // handlePlantDetails = async (plant) => {
-    //     console.log('PlantDetails button clicked', plant.id);
-    //     this.setState({
-    //         plantSelectedDetails: [],
-    //         plantSelectedId: plant.id
+    handlePlantDetails = async (plant) => {
+        console.log('PlantDetails button clicked', plant.id);
+        this.setState({
+            plantDetailsLoading: true,
+            plantSelectedDetails: [],
+            plantSelectedId: plant.id
 
-    //     })
-    //     let plantDetails = await plantService.queryPlant(plant.id)
-    //         .then(res => JSON.parse(res));
+        })
+        let plantDetails = await plantService.queryPlant(plant.id)
+            .then(res => JSON.parse(res));
         
-    //     this.setState({
-    //         plantSelectedDetails: plantDetails
-    //     })
-    // };
+        this.setState({
+            plantSelectedDetails: plantDetails,
+            plantDetailsLoading: false
+        })
+    };
 
 
   componentDidMount() {
@@ -87,12 +91,18 @@ class App extends Component{
         <div className="App">
           < NavBar 
             {...this.state}
+            handleSearch={this.handleSearch}
+            handleOnChange={this.handleOnChange}
+            handlePlantDetails={this.handlePlantDetails}
           />
           <Switch>
             <Route exact path='/' render={() =>
               <Search
                 handleLogout={this.handleLogout}
+                handleOnChange={this.handleOnChange}
+                handlePlantDetails={this.handlePlantDetails}
                 user={this.state.user}
+                {...this.state}
               />
             }/>
 
@@ -109,6 +119,7 @@ class App extends Component{
                 handleSignupOrLogin={this.handleSignupOrLogin}
               />
             }/>
+            
             <Route exact path='/login' render={({ history }) => 
               <LoginPage
                 history={history}

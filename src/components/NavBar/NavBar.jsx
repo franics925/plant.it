@@ -29,7 +29,9 @@ const NavBar = (props) => {
       <div className={style.NavBar}>
         <div className={style.LeftNav}>
           <h1>plant.it</h1>
-          < SearchBar />
+          < SearchBar 
+            {...props}
+          />
         </div>
         {userStatus}
       </div>

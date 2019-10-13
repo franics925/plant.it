@@ -1,15 +1,15 @@
 import React from 'react';
 import style from './SearchResults.module.css';
+import Preloader from '../../Preloader/Preloader';
 
 const TREFLE_TOKEN = "REMwZDF3cStYN28vZkJTeU9tWm9Bdz09";
 // import About from '../../About/About';
 
 const SearchResults = (props) => (
     <div className={style.SearchResults}>
-        SearchResults<br/>
         {/* < About /> */}
         <ul>
-        {props.searchLoading && <text>search loading</text>}
+        {props.searchLoading && < Preloader />}
             {props.searchResults.sort().map((plant, idx) =>
                 <div 
                     className={style.SearchResult} 
