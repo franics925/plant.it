@@ -3,12 +3,8 @@
   min-height: 100vh;
   color: white;
 }
-
-div {
-  /* border: 2px dotted green; */
-  margin: 5px;
-  padding: 2px;
-
+html {
+  margin: .3em .8em 0 .8em;
 }
 
 .App-logo {

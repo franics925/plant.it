@@ -3,8 +3,11 @@
     justify-content: space-between;
     align-items: center;
     background-color:rgb(142, 172, 108);
-    padding: .4em;
+    padding: .5em;
+    padding-bottom: none;
     border-radius: .2em;
+    margin-bottom: .5em;
+
   }
 
   .NavBarLink {
