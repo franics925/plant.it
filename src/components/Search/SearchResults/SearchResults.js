@@ -7,9 +7,14 @@ const TREFLE_TOKEN = "REMwZDF3cStYN28vZkJTeU9tWm9Bdz09";
 
 const SearchResults = (props) => (
     <div className={style.SearchResults}>
+        {props.searchLoading && < Preloader />}
         {/* < About /> */}
         <ul>
-        {props.searchLoading && < Preloader />}
+        { props.resultsLoaded && props.query ? 
+        <div className={style.ResultsPrompt}>
+            <h3>Showing results for: <h4>{props.query}</h4></h3>
+        </div> : ''
+        }
             {props.searchResults.sort().map((plant, idx) =>
                 <div 
                     className={style.SearchResult} 
@@ -21,7 +26,7 @@ const SearchResults = (props) => (
                     </div>
 
                     <a href={`${plant.link}?token=${TREFLE_TOKEN}`} target="_blank" rel="noopener noreferrer" className={style.PlantLink}>    
-                    Treffle Link
+                    Trefle Link
                     </a>
 
                     Plant ID:<br/>{plant.id}

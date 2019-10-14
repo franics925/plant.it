@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #282c34;
+    background-color:rgb(142, 172, 108);
     padding: .4em;
     border-radius: .2em;
   }
@@ -20,8 +20,3 @@
     align-items: center;
   }
   
-  .LeftNav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }

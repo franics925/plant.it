@@ -11,15 +11,17 @@ class Search extends Component {
             <div className={style.Search}>
                 <div className={style.SearchPanels}>
 
-                    {this.props.query &&
+                    {this.props.resultsLoaded &&
                         <div className={style.SearchPanelLeft}>
-                            {this.props.query && 
+                            {this.props.resultsLoaded &&
                             < SearchResults
                                 handlePlantDetails={this.props.handlePlantDetails}
                                 searchResults={this.props.searchResults} 
                                 searchLoading={this.props.searchLoading}
+                                {...this.props}
                             />}
-                    </div>}
+                        </div>
+                    }
 
                     {this.props.plantSelectedId && 
                         < PlantDetails
@@ -27,7 +29,8 @@ class Search extends Component {
                             plantSelectedId={this.props.plantSelectedId}
                             plantSelectedDetails={this.props.plantSelectedDetails}
                             plantDetailsLoading={this.props.plantDetailsLoading}
-                        />}
+                        />
+                    }
                     
                 </div>
             </div>

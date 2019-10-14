@@ -3,7 +3,6 @@ import '../App/App.css';
 import Search from '../../components/Search/Search';
 import User from '../../components/User/User';
 import { Route, Switch,} from 'react-router-dom';
-// import SearchPage from '../../pages/SearchPage/SearchPage';
 import NavBar from '../../components/NavBar/NavBar';
 import SignupPage from '../SignupPage/SignupPage';
 import userService from '../../utils/userService';
@@ -13,7 +12,8 @@ import plantService from '../../utils/plantService';
 class App extends Component{
   state = {
     searchResults: [],
-    query: false,
+    resultsLoaded: false,
+    query: '',
     searchLoading: false,
     plantDetailsLoading: false,
     plantSelectedDetails: [],
@@ -29,13 +29,14 @@ class App extends Component{
             searchResults: [],
             plantSelectedDetails: [],
             plantSelectedId: '',
+            resultsLoaded: false,
         })
         let searchResults = await plantService.search(this.state.query).then(res => JSON.parse(res));
         
         this.setState({ 
             searchResults: searchResults,
             searchLoading: false,
-            query: true
+            resultsLoaded: true,
         })
     };
     
@@ -95,15 +96,17 @@ class App extends Component{
             handleOnChange={this.handleOnChange}
             handlePlantDetails={this.handlePlantDetails}
           />
+
           <Switch>
             <Route exact path='/' render={() =>
-              <Search
-                handleLogout={this.handleLogout}
-                handleOnChange={this.handleOnChange}
-                handlePlantDetails={this.handlePlantDetails}
-                user={this.state.user}
-                {...this.state}
-              />
+
+                <Search
+                  handleLogout={this.handleLogout}
+                  handleOnChange={this.handleOnChange}
+                  handlePlantDetails={this.handlePlantDetails}
+                  user={this.state.user}
+                  {...this.state}
+                />
             }/>
 
             <Route exact path='/user' render={() => (
@@ -135,21 +138,3 @@ class App extends Component{
 }
 
 export default App;
-
-
-
-
-
-
-
-  // makeApiCall = searchInput => {
-  //     // var searchUrl = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInput}`;
-  //     // fetch(searchUrl)
-  //     // .then(response => {
-  //     // return response.json();
-  //     // })
-  //     // .then(jsonData => {
-  //     // console.log(jsonData);
-      
-  //     // });
-  // };
