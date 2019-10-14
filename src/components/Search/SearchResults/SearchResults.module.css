@@ -12,14 +12,21 @@
     background-color: white;
     font-weight: 700;
     font-size: 16px;
-    padding: .3 em;
+    padding: .6em;
     align-items: center;
     border-bottom: 1px solid lightgrey;
     
 }
 
-.Buttons  button{
+.Buttons button{
     margin: .3em;
     border-radius: .4em;
     justify-content: center;
+}
+
+.plantNames {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start
+    
 }

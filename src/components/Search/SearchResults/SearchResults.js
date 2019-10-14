@@ -10,9 +10,9 @@ const SearchResults = (props) => (
         {props.searchLoading && < Preloader />}
         {/* < About /> */}
         <ul>
-        { props.resultsLoaded && props.query ? 
+        { props.resultsLoaded && props.priorQuery ? 
         <div className={style.ResultsPrompt}>
-            <h3>Showing results for: <h4>{props.query}</h4></h3>
+            <h3>Showing results for: <h4>{props.priorQuery}</h4></h3>
         </div> : ''
         }
             {props.searchResults.sort().map((plant, idx) =>

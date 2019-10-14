@@ -14,6 +14,7 @@ class App extends Component{
     searchResults: [],
     resultsLoaded: false,
     query: '',
+    priorQuery: '',
     searchLoading: false,
     plantDetailsLoading: false,
     plantSelectedDetails: [],
@@ -37,6 +38,7 @@ class App extends Component{
             searchResults: searchResults,
             searchLoading: false,
             resultsLoaded: true,
+            priorQuery: this.state.query
         })
     };
     

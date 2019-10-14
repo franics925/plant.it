@@ -1,5 +1,16 @@
 .PlantDetails {
     height: 100%;
-    color: black;
+    color: rgb(60,50,25);
+    background-color: rgb(253, 253, 253);
+    /* background-color: #e7dedb; */
+    border: 2px solid rgb(156, 168, 142);
+    border-radius: .5em;
+    margin-top: 3em;
+
+}
+
+.PlantDetails ul {
+    margin: .3em;
+    padding:.3em;
 }
 
