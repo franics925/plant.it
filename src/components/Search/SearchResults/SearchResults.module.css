@@ -1,11 +1,11 @@
 .SearchResults {
     height:100%;
     overflow: auto;
-    color: black;
+    color: rgb(55,55,55);
 }
 
 .SearchResult {
-    color: black;
+    color: rgb(75,75,75);
     display: flex;
     justify-content: space-between;
     margin: .4em;
@@ -16,6 +16,17 @@
     align-items: center;
     border-bottom: 1px solid lightgrey;
     
+}
+
+h3 {
+    color: rgb(95,95,95)
+}
+
+.SearchResult div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .Buttons button{

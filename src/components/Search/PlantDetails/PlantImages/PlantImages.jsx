@@ -8,24 +8,13 @@ class PlantImages extends Component {
         imageList: []
     }
 
-    handleClickOnImage = async (event) => {
-
-        console.log(event._id);
-        console.log(event.target._id);
-    }
-
-    handleClearImageArray = () => {
-        this.setState({
-            imageList: []
-        })
-    }
 
     render() {
         return(
             <div className={style.Images}>
                 {this.handleClearImageArray}
                 <div className={style.MainImage}>
-                    <img src={`${this.state.imageList[0]}`}></img>
+                    <img src={`${this.state.mainImage}`}></img>
                 </div>
 
                 <div className={style.ImageList}>

@@ -29,8 +29,6 @@ const SearchResults = (props) => (
                     Trefle Link
                     </a>
 
-                    Plant ID:<br/>{plant.id}
-
                     <div className={style.Buttons}>
                         <button 
                             className={style.PlantDetailsButton}
