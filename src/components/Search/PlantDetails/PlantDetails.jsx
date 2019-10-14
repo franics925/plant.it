@@ -17,7 +17,7 @@ const PlantDetails = (props) => (
             <div className={style.Name}>
                 <h4 className={style.CommonName}>{props.plantSelectedDetails.common_name}</h4>
                 <p className={style.ScientificName}>{props.plantSelectedDetails.scientific_name}</p>
-            </div>
+            </div><hr/>
 
             <div className={style.Taxonomy}>
                 <h3>Taxonomy</h3>
@@ -48,7 +48,7 @@ const PlantDetails = (props) => (
                         }
                         </p>
                     </p>
-                </div><hr/>
+                </div>
 
                 <div className={style.Genus}>
                     <h4>Genus:  </h4>
@@ -62,10 +62,10 @@ const PlantDetails = (props) => (
                         : `No Data Exists`
                     }
                     </p>
-                </div><hr/>
+                </div>
                 
                 <div className={style.Order}>
-                    <h4>Order:  </h4>
+                    <h4>Order: </h4>
                     <p>{
                         props.plantSelectedDetails.order ? 
                         <a href={`${props.plantSelectedDetails.order.link}?token=${TREFLE_TOKEN}`}
@@ -76,7 +76,7 @@ const PlantDetails = (props) => (
                         : `No Data Exists`
                     }
                     </p>
-                </div><hr/>
+                </div>
 
                 <div className={style.PlantClass}>
                     <h4>Class:  </h4>
@@ -90,7 +90,7 @@ const PlantDetails = (props) => (
                         : `No Data Exists`
                     }
                     </p>
-                </div><hr/>
+                </div>
 
                 <div className={style.Division}>
                     <h4>Division:  </h4>
@@ -104,11 +104,42 @@ const PlantDetails = (props) => (
                         : `No Data Exists`
                     }
                     </p>
-                </div><hr/>
-            </div>
+                </div>
 
-            <div className={style.Watering}>
-                <h3>Watering Data</h3>
+                <div className={style.NativeStatus}>
+                    <h4>Native Status:  </h4>
+                    <p>{
+                        props.plantSelectedDetails.native_status ? 
+                        props.plantSelectedDetails.native_status : `No Data Exists`
+                    }
+                    </p>
+                </div>
+
+                <div className={style.Varieties}>
+                    <h4>Varities:  </h4>
+                    <p>{
+                        props.plantSelectedDetails.varieties ? 
+                        props.plantSelectedDetails.varieties.map((variety, idx) =>
+                            <div
+                                className={style.Variety}
+                                key={idx}
+                            >
+
+                                <a href={`${variety.link}?token=${TREFLE_TOKEN}`}
+                                target="_blank" rel="noopener noreferrer"
+                            >
+                            {variety.scientific_name}
+                        </a> 
+                            </div>
+                        ) : `No Data Exists`
+                    }
+                    </p>
+                </div>
+            </div><hr/>
+            
+            <div className={style.Growth}>
+                <h4>Growth</h4>
+
                 <div className={style.DroughtTolerance}>
                     <h4>Drought Tolerance:  </h4>
                     <p>{
@@ -117,7 +148,7 @@ const PlantDetails = (props) => (
                         : `No Data Exists`
                     }
                     </p>
-                </div><hr/>
+                </div>
 
                 <div className={style.PrecipMin}>
                     <h4>Minimum Precipitation (inches/year):  </h4>
@@ -127,7 +158,7 @@ const PlantDetails = (props) => (
                         : `No Data Exists`
                     }
                     </p>
-                </div><hr/>
+                </div>
 
                 <div className={style.PrecipMax}>
                     <h4>MaximumPrecipitation (inches/year):  </h4>
@@ -137,96 +168,66 @@ const PlantDetails = (props) => (
                         : `No Data Exists`
                     }
                     </p>
-                </div><hr/>
-            </div>    
+                </div>  
 
-            <div className={style.MinRootDepth}>
-                <h4>Minimum Root Depth (inches):  </h4>
-                <p>{
-                    props.plantSelectedDetails.main_species ? 
-                    props.plantSelectedDetails.main_species.growth.root_depth_minimum.inches
-                    : `No Data Exists`
-                }
-                </p>
-            </div><hr/>
+                <div className={style.MinRootDepth}>
+                    <h4>Minimum Root Depth (inches):  </h4>
+                    <p>{
+                        props.plantSelectedDetails.main_species ? 
+                        props.plantSelectedDetails.main_species.growth.root_depth_minimum.inches
+                        : `No Data Exists`
+                    }
+                    </p>
+                </div>
 
-            <div className={style.MinRootDepth}>
-                <h4>Mature Height (feet):  </h4>
-                <p>{
-                    props.plantSelectedDetails.main_species ? 
-                    props.plantSelectedDetails.main_species.specifications.mature_height.ft
-                    : `No Data Exists`
-                }
-                </p>
-            </div><hr/>
+                <div className={style.MinRootDepth}>
+                    <h4>Mature Height (feet):  </h4>
+                    <p>{
+                        props.plantSelectedDetails.main_species ? 
+                        props.plantSelectedDetails.main_species.specifications.mature_height.ft
+                        : `No Data Exists`
+                    }
+                    </p>
+                </div>
 
-            <div className={style.ShadeTolerance}>
-                <h4>Shade Tolerance:  </h4>
-                <p>{
-                    props.plantSelectedDetails.main_species ? 
-                    props.plantSelectedDetails.main_species.growth.shade_tolerance
-                    : `No Data Exists`
-                }
-                </p>
-            </div><hr/>
+                <div className={style.ShadeTolerance}>
+                    <h4>Shade Tolerance:  </h4>
+                    <p>{
+                        props.plantSelectedDetails.main_species ? 
+                        props.plantSelectedDetails.main_species.growth.shade_tolerance
+                        : `No Data Exists`
+                    }
+                    </p>
+                </div>
 
-            <div className={style.MinTemp}>
-                <h4>Minimum Temp (F):  </h4>
-                <p>{
-                    props.plantSelectedDetails.main_species ? 
-                    props.plantSelectedDetails.main_species.growth.temperature_minimum.deg_f
-                    : `No Data Exists`
-                }
-                </p>
-            </div><hr/>
+                <div className={style.MinTemp}>
+                    <h4>Minimum Temp (F):  </h4>
+                    <p>{
+                        props.plantSelectedDetails.main_species ? 
+                        props.plantSelectedDetails.main_species.growth.temperature_minimum.deg_f
+                        : `No Data Exists`
+                    }
+                    </p>
+                </div>
 
-            <div className={style.Duration}>
-                <h4>Duration:  </h4>
-                <p>{
-                    props.plantSelectedDetails.duration ? 
-                    props.plantSelectedDetails.duration 
-                    : `No Data Exists`
-                }
-                </p>
-            </div><hr/>
+                <div className={style.Duration}>
+                    <h4>Duration:  </h4>
+                    <p>{
+                        props.plantSelectedDetails.duration ? 
+                        props.plantSelectedDetails.duration 
+                        : `No Data Exists`
+                    }
+                    </p>
+                </div>
 
-            <div className={style.NativeStatus}>
-                <h4>Native Status:  </h4>
-                <p>{
-                    props.plantSelectedDetails.native_status ? 
-                    props.plantSelectedDetails.native_status : `No Data Exists`
-                }
-                </p>
-            </div><hr/>
-
-            <div className={style.Flower}>
-                <h4>Flower Color:  </h4>
-                <p>{
-                    props.plantSelectedDetails.main_species? 
-                    props.plantSelectedDetails.main_species.flower.color : `No Data Exists`
-                }
-                </p>
-            </div><hr/>
-
-            <div className={style.Varieties}>
-                <h4>Varities:  </h4>
-                <p>{
-                    props.plantSelectedDetails.varieties ? 
-                    props.plantSelectedDetails.varieties.map((variety, idx) =>
-                        <div
-                            className={style.Variety}
-                            key={idx}
-                        >
-
-                            <a href={`${variety.link}?token=${TREFLE_TOKEN}`}
-                            target="_blank" rel="noopener noreferrer"
-                        >
-                        {variety.scientific_name}
-                    </a> 
-                        </div>
-                    ) : `No Data Exists`
-                }
-                </p>
+                <div className={style.Flower}>
+                    <h4>Flower Color:  </h4>
+                    <p>{
+                        props.plantSelectedDetails.main_species? 
+                        props.plantSelectedDetails.main_species.flower.color : `No Data Exists`
+                    }
+                    </p>
+                </div>
             </div>
         </ul>
     </div>

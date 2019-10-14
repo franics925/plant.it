@@ -1,24 +1,31 @@
 import React, { Component } from 'react';
 import style from './PlantImages.module.css';
-// import ReactDOM from 'react-dom';
-// import "react-responsive-carousel/lib/styles/carousel.min.css";
-// import { Carousel } from 'react-responsive-carousel';
 
 class PlantImages extends Component {
     state = {
-        mainImage: ``,
+        mainImage: '',
         index: 0,
         imageList: []
-
     }
 
-    handleOnClickImage
+    handleClickOnImage = async (event) => {
+
+        console.log(event._id);
+        console.log(event.target._id);
+    }
+
+    handleClearImageArray = () => {
+        this.setState({
+            imageList: []
+        })
+    }
 
     render() {
         return(
             <div className={style.Images}>
+                {this.handleClearImageArray}
                 <div className={style.MainImage}>
-                    <img src={this.state.mainImage}></img>
+                    <img src={`${this.state.imageList[0]}`}></img>
                 </div>
 
                 <div className={style.ImageList}>
@@ -28,9 +35,13 @@ class PlantImages extends Component {
                             <div
                                 className={style.Image}
                                 key={idx}
-
+                                pushImages = {this.state.imageList.push(image.url)}
                             >
-                                <img src={`${image.url}`}></img>
+                                <img 
+                                    src={`${image.url}`}
+                                    onClick={this.handleClickOnImage}
+                                >
+                                </img>
                             </div>
                         ) : ``
                     }
@@ -42,31 +53,3 @@ class PlantImages extends Component {
 }
 
 export default PlantImages;
-
-
-// class DemoCarousel extends Component {
-//     state = {
-//         mainImage=''
-//     }
-
-//     render() {
-//         return (
-//             <Carousel>
-//                 <div>
-//                     <img src="assets/1.jpeg" />
-//                     <p className="legend">Legend 1</p>
-//                 </div>
-//                 <div>
-//                     <img src="assets/2.jpeg" />
-//                     <p className="legend">Legend 2</p>
-//                 </div>
-//                 <div>
-//                     <img src="assets/3.jpeg" />
-//                     <p className="legend">Legend 3</p>
-//                 </div>
-//             </Carousel>
-//         );
-//     }
-// });
- 
-// ReactDOM.render(<DemoCarousel />, document.querySelector('.demo-carousel'));

@@ -19,12 +19,11 @@ class App extends Component{
     plantDetailsLoading: false,
     plantSelectedDetails: [],
     plantSelectedId: '',
-    user: userService.getUser()
+    user: userService.getUser(),
+    imageList:[]
   }
 
     handleSearch = async (event) => {
-        console.log('search button clicked');
-        console.log(`query ${this.state.query}`);
         this.setState({
             searchLoading: true,
             searchResults: [],
@@ -46,13 +45,9 @@ class App extends Component{
         this.setState({
             query: (event.target.value)
         })
-
-        console.log('change in search bar')
-        console.log(event.target.value);
     };
 
     handlePlantDetails = async (plant) => {
-        console.log('PlantDetails button clicked', plant.id);
         this.setState({
             plantDetailsLoading: true,
             plantSelectedDetails: [],
@@ -75,7 +70,7 @@ class App extends Component{
     .then((data) => {
       this.setState({ plants: data})
     })
-    .catch(console.log)
+    .catch('error')
   }
 
 
