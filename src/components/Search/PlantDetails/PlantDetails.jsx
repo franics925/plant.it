@@ -1,155 +1,144 @@
 import React from 'react';
 import style from './PlantDetails.module.css';
 import Preloader from '../../Preloader/Preloader';
+import PlantImages from './PlantImages/PlantImages';
+
 const TREFLE_TOKEN = "REMwZDF3cStYN28vZkJTeU9tWm9Bdz09";
 
 const PlantDetails = (props) => (
 
     <div className={style.PlantDetails}>
-    {props.selectedPlantDetails}
-        {}
         <ul>
             {props.plantDetailsLoading && < Preloader />}
-            <div className={style.Images}>
-                <ul>
-                {
-                    props.plantSelectedDetails.images ? 
-                    props.plantSelectedDetails.images.map((image, idx) =>
-                        <div
-                            className={style.Image}
-                            key={idx}
-                        >
-                            <img src={`${image.url}`}></img>
-                        </div>
-                    ) : ``
-                }
-                </ul>
-            </div>
+            < PlantImages 
+                {...props}
+            />
 
             <div className={style.Name}>
-                <h4>{props.plantSelectedDetails.common_name}</h4>
-                <p>{props.plantSelectedDetails.scientific_name}</p>
-            </div><hr/>
+                <h4 className={style.CommonName}>{props.plantSelectedDetails.common_name}</h4>
+                <p className={style.ScientificName}>{props.plantSelectedDetails.scientific_name}</p>
+            </div>
 
-            <div className={style.FamilyCommonName}>
-                <h4>Family:  </h4>
-                <p>
-                    <h5>
-                        Common:
-                    </h5>
+            <div className={style.Taxonomy}>
+                <h3>Taxonomy</h3>
+
+                <div className={style.FamilyCommonName}>
+                    <h4>Family Name:  </h4>
                     <p>
-                        {
-                            props.plantSelectedDetails.family_common_name ? 
-                            props.plantSelectedDetails.family_common_name : `No Data Exists`
+                        <h5>
+                            Common:
+                        </h5>
+                        <p>
+                            {
+                                props.plantSelectedDetails.family_common_name ? 
+                                props.plantSelectedDetails.family_common_name : `No Data Exists`
+                            }
+                        </p>
+                        <h5>
+                            Scientific:
+                        </h5>
+                        <p>{
+                        props.plantSelectedDetails.family? 
+                        <a href={`${props.plantSelectedDetails.family.link}?token=${TREFLE_TOKEN}`}
+                            target="_blank" rel="noopener noreferrer"
+                        >
+                            {props.plantSelectedDetails.family.name}
+                        </a> 
+                        : `No Data Exists`
                         }
+                        </p>
                     </p>
-                    <h5>
-                        Scientific:
-                    </h5>
-                    <p>
-                        {
-                            props.plantSelectedDetails.family ? 
-                            props.plantSelectedDetails.family.name : `No Data Exists`
-                        }
+                </div><hr/>
+
+                <div className={style.Genus}>
+                    <h4>Genus:  </h4>
+                    <p>{
+                        props.plantSelectedDetails.genus? 
+                        <a href={`${props.plantSelectedDetails.genus.link}?token=${TREFLE_TOKEN}`}
+                            target="_blank" rel="noopener noreferrer"
+                        >
+                            {props.plantSelectedDetails.genus.name}
+                        </a> 
+                        : `No Data Exists`
+                    }
                     </p>
-                </p>
-            </div><hr/><hr/>
+                </div><hr/>
+                
+                <div className={style.Order}>
+                    <h4>Order:  </h4>
+                    <p>{
+                        props.plantSelectedDetails.order ? 
+                        <a href={`${props.plantSelectedDetails.order.link}?token=${TREFLE_TOKEN}`}
+                            target="_blank" rel="noopener noreferrer"
+                            >
+                            {props.plantSelectedDetails.order.name}
+                        </a> 
+                        : `No Data Exists`
+                    }
+                    </p>
+                </div><hr/>
 
-            <div className={style.Genus}>
-                <h4>Genus:  </h4>
-                <p>{
-                    props.plantSelectedDetails.genus? 
-                    <a href={`${props.plantSelectedDetails.genus.link}?token=${TREFLE_TOKEN}`}
-                        target="_blank" rel="noopener noreferrer"
-                    >
-                        {props.plantSelectedDetails.genus.name}
-                    </a> 
-                    : `No Data Exists`
-                }
-                </p>
-            </div><hr/>
-            
-            <div className={style.Order}>
-                <h4>Order:  </h4>
-                <p>{
-                    props.plantSelectedDetails.order ? 
-                    <a href={`${props.plantSelectedDetails.order.link}?token=${TREFLE_TOKEN}`}
-                        target="_blank" rel="noopener noreferrer"
-                        >
-                        {props.plantSelectedDetails.order.name}
-                    </a> 
-                    : `No Data Exists`
-                }
-                </p>
-            </div><hr/>
+                <div className={style.PlantClass}>
+                    <h4>Class:  </h4>
+                    <p>{
+                        props.plantSelectedDetails.class ? 
+                        <a href={`${props.plantSelectedDetails.class.link}?token=${TREFLE_TOKEN}`}
+                            target="_blank" rel="noopener noreferrer"
+                            >
+                            {props.plantSelectedDetails.class.name}
+                        </a> 
+                        : `No Data Exists`
+                    }
+                    </p>
+                </div><hr/>
 
-            <div className={style.PlantClass}>
-                <h4>Class:  </h4>
-                <p>{
-                    props.plantSelectedDetails.class ? 
-                    <a href={`${props.plantSelectedDetails.class.link}?token=${TREFLE_TOKEN}`}
-                        target="_blank" rel="noopener noreferrer"
-                        >
-                        {props.plantSelectedDetails.class.name}
-                    </a> 
-                    : `No Data Exists`
-                }
-                </p>
-            </div><hr/>
+                <div className={style.Division}>
+                    <h4>Division:  </h4>
+                    <p>{
+                        props.plantSelectedDetails.division? 
+                        <a href={`${props.plantSelectedDetails.division.link}?token=${TREFLE_TOKEN}`}
+                            target="_blank" rel="noopener noreferrer"
+                            >
+                            {props.plantSelectedDetails.division.name}
+                        </a> 
+                        : `No Data Exists`
+                    }
+                    </p>
+                </div><hr/>
+            </div>
 
-            <div className={style.Division}>
-                <h4>Division:  </h4>
-                <p>{
-                    props.plantSelectedDetails.division? 
-                    <a href={`${props.plantSelectedDetails.division.link}?token=${TREFLE_TOKEN}`}
-                        target="_blank" rel="noopener noreferrer"
-                        >
-                        {props.plantSelectedDetails.division.name}
-                    </a> 
-                    : `No Data Exists`
-                }
-                </p>
-            </div><hr/>
+            <div className={style.Watering}>
+                <h3>Watering Data</h3>
+                <div className={style.DroughtTolerance}>
+                    <h4>Drought Tolerance:  </h4>
+                    <p>{
+                        props.plantSelectedDetails.main_species ? 
+                        props.plantSelectedDetails.main_species.growth.drought_tolerance
+                        : `No Data Exists`
+                    }
+                    </p>
+                </div><hr/>
 
-            <div className={style.Duration}>
-                <h4>Duration:  </h4>
-                <p>{
-                    props.plantSelectedDetails.duration ? 
-                    props.plantSelectedDetails.duration 
-                    : `No Data Exists`
-                }
-                </p>
-            </div><hr/>
+                <div className={style.PrecipMin}>
+                    <h4>Minimum Precipitation (inches/year):  </h4>
+                    <p>{
+                        props.plantSelectedDetails.main_species ? 
+                        props.plantSelectedDetails.main_species.growth.precipitation_minimum.inches
+                        : `No Data Exists`
+                    }
+                    </p>
+                </div><hr/>
 
-            <div className={style.DroughtTolerance}>
-                <h4>Drought Tolerance:  </h4>
-                <p>{
-                    props.plantSelectedDetails.main_species ? 
-                    props.plantSelectedDetails.main_species.growth.drought_tolerance
-                    : `No Data Exists`
-                }
-                </p>
-            </div><hr/>
-
-            <div className={style.PrecipMin}>
-                <h4>Minimum Precipitation (inches/year):  </h4>
-                <p>{
-                    props.plantSelectedDetails.main_species ? 
-                    props.plantSelectedDetails.main_species.growth.precipitation_minimum.inches
-                    : `No Data Exists`
-                }
-                </p>
-            </div><hr/>
-
-            <div className={style.PrecipMax}>
-                <h4>MaximumPrecipitation (inches/year):  </h4>
-                <p>{
-                    props.plantSelectedDetails.main_species ? 
-                    props.plantSelectedDetails.main_species.growth.precipitation_maximum.inches
-                    : `No Data Exists`
-                }
-                </p>
-            </div><hr/>
+                <div className={style.PrecipMax}>
+                    <h4>MaximumPrecipitation (inches/year):  </h4>
+                    <p>{
+                        props.plantSelectedDetails.main_species ? 
+                        props.plantSelectedDetails.main_species.growth.precipitation_maximum.inches
+                        : `No Data Exists`
+                    }
+                    </p>
+                </div><hr/>
+            </div>    
 
             <div className={style.MinRootDepth}>
                 <h4>Minimum Root Depth (inches):  </h4>
