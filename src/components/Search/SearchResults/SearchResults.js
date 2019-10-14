@@ -1,14 +1,11 @@
 import React from 'react';
 import style from './SearchResults.module.css';
 import Preloader from '../../Preloader/Preloader';
-
 const TREFLE_TOKEN = "REMwZDF3cStYN28vZkJTeU9tWm9Bdz09";
-// import About from '../../About/About';
 
 const SearchResults = (props) => (
     <div className={style.SearchResults}>
         {props.searchLoading && < Preloader />}
-        {/* < About /> */}
         <ul>
         { props.resultsLoaded && props.priorQuery ? 
         <div className={style.ResultsPrompt}>

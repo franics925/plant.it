@@ -1,6 +1,5 @@
 import React from 'react';
 import style from './SearchBar.module.css';
-// import { directive } from '@babel/types';
 
 const SearchBar = (props) => {
     return (

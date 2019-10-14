@@ -40,21 +40,5 @@ const NavBar = (props) => {
     );
   };
 
-// const NavBar = (props) => (
-
-//     <div className={style.About}>
-//         <nav>
-//             <header className="App-header">
-//                 <h1>plant.it</h1>
-//             </header>
-//             <div className="navbar-menu">
-//                 <div class="navbar-start">
-//                     <Link to="/login" className='navbar-item'>Login</Link>
-//                     <Link to="/signup" className='navbar-item'>Sign Up</Link>
-//                 </div>
-//             </div>
-//         </nav>
-//     </div>
-// )
 
 export default NavBar;
