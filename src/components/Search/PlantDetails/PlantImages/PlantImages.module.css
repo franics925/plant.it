@@ -1,0 +1,17 @@
+img {
+    width: 100%
+}
+
+.Image {
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: .5em;
+    /* margin: .5em; */
+    padding: .5em;
+}
+
+.ImageList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

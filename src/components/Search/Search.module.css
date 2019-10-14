@@ -1,7 +1,6 @@
 .Search {
     display: flex;
     flex-direction: column;
-    background-color: pink;
     height: 100%;
 }
 
@@ -14,14 +13,14 @@
 
 .SearchPanelLeft{
     background-color: mediumaquamarine;
-    width: 77%;
+    width: 73%;
     overflow: auto;
     
 }
 .SearchPanelRight {
     
     background-color: orange;
-    width: 23%;
+    width: 27%;
     min-width: 180px;
     overflow: auto;
 }

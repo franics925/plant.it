@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import style from './PlantImages.module.css';
+// import ReactDOM from 'react-dom';
+// import "react-responsive-carousel/lib/styles/carousel.min.css";
+// import { Carousel } from 'react-responsive-carousel';
 
 class PlantImages extends Component {
     state = {
-        mainImage: '',
+        mainImage: ``,
         index: 0,
         imageList: []
 
     }
+
+    handleOnClickImage
 
     render() {
         return(
@@ -17,7 +22,6 @@ class PlantImages extends Component {
                 </div>
 
                 <div className={style.ImageList}>
-                    <ul>
                     {
                         this.props.plantSelectedDetails.images ? 
                         this.props.plantSelectedDetails.images.map((image, idx) =>
@@ -30,7 +34,6 @@ class PlantImages extends Component {
                             </div>
                         ) : ``
                     }
-                        </ul>
                 </div>
             </div>
         );
@@ -41,14 +44,6 @@ class PlantImages extends Component {
 export default PlantImages;
 
 
-
-
-
-// import React, { Component } from 'react';
-// import ReactDOM from 'react-dom';
-// import "react-responsive-carousel/lib/styles/carousel.min.css";
-// import { Carousel } from 'react-responsive-carousel';
- 
 // class DemoCarousel extends Component {
 //     state = {
 //         mainImage=''

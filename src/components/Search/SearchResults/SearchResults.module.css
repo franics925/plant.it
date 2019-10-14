@@ -2,6 +2,7 @@
     height:100%;
     overflow: auto;
     color: black;
+    background-color:orange;
 }
 
 .SearchResult {

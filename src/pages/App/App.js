@@ -13,7 +13,7 @@ import plantService from '../../utils/plantService';
 class App extends Component{
   state = {
     searchResults: [],
-    query: '',
+    query: false,
     searchLoading: false,
     plantDetailsLoading: false,
     plantSelectedDetails: [],
@@ -34,8 +34,8 @@ class App extends Component{
         
         this.setState({ 
             searchResults: searchResults,
-            searchLoading: false
-            // query: this.search.value
+            searchLoading: false,
+            query: true
         })
     };
     
