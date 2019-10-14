@@ -12,4 +12,21 @@ Heroku: https://plant-it.herokuapp.com/
 Github: https://github.com/franics925/plant.it
 
 
-### `npm test`
+### Tech Used
+MongoDB Atlas,
+Express,
+React,
+node.js,
+HTML,
+CSS,
+JavaScript,
+Ajax
+
+
+### Future Features
+Enable full CRUD: 
+    1. Users should be able to submit a form and add missing data, which in turn can be verified by other users
+    2. Users should be able to 'collect' a plant and add observations, watering and feeding data, and get notifications when a plant needs to be watered or fed.
+Finish image viewer in plant details
+
+
