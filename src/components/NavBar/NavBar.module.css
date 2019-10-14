@@ -3,18 +3,22 @@
     justify-content: space-between;
     align-items: center;
     background-color:rgb(142, 172, 108);
-    padding: .5em;
+    padding: .3em .9em .3em .9em;
     padding-bottom: none;
-    border-radius: .2em;
+    border-radius: .4em;
     margin-bottom: .5em;
 
   }
 
   .NavBarLink {
-    color: darkgrey;
-    background-color: white;
-    padding: 1em;
-    height:10px
+    color: rgb(108, 108, 245);
+    background-color: rgba(255,255,255,0);
+    padding: .5em;
+    font-weight: 550;
+  }
+
+  .NavBarLink:hover {
+    color: white;
   }
 
   .LeftNav {

@@ -13,7 +13,7 @@ const SearchBar = (props) => {
                     className="SearchButton"
                     onClick={props.handleSearch}
                 >
-                Search
+                {props.query ? <p>Search</p>: <p>Feeling Lucky?</p>}
                 </button>
         </div>
     );

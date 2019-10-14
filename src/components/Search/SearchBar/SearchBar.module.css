@@ -4,6 +4,10 @@ input {
     min-width: auto;
     max-width: 500px;
     margin: .5em;
+    border-radius: .8em;
+    padding: .2em .3em .1em .3em;
+
+
 }
 
 .SearchBar {
@@ -14,9 +18,21 @@ input {
     position: -webkit-sticky;
     position: sticky;
     top:0;
+    height: 30px;
 
 }
 
 button {
-    height: 25px;
+    height: 30px;
+    border-radius: .8em;
+    min-width: 130px;
+}
+
+button:hover {
+    background-color: rgb(225,225,225);
+}
+
+button:active {
+    background-color: rgb(199, 211, 247);
+    color: white;
 }
