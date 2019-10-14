@@ -1,21 +1,10 @@
-/* .App-logo {
-    height: 40vmin;
-  } */
-  
-  /* .App-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    height: 60px;
-  } */
-
   .NavBar{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color:forestgreen;
+    background-color: #282c34;
+    padding: .4em;
+    border-radius: .2em;
   }
 
   .NavBarLink {

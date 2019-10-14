@@ -10,15 +10,16 @@ class Search extends Component {
         return (
             <div className={style.Search}>
                 <div className={style.SearchPanels}>
-                    <div className={style.SearchPanelLeft}>
-                        {this.props.query && 
-                        < SearchResults
-                            // className={style.SearchPanelLeft}
-                            handlePlantDetails={this.props.handlePlantDetails}
-                            searchResults={this.props.searchResults} 
-                            searchLoading={this.props.searchLoading}
-                        />}
-                    </div>
+
+                    {this.props.query &&
+                        <div className={style.SearchPanelLeft}>
+                            {this.props.query && 
+                            < SearchResults
+                                handlePlantDetails={this.props.handlePlantDetails}
+                                searchResults={this.props.searchResults} 
+                                searchLoading={this.props.searchLoading}
+                            />}
+                    </div>}
 
                     {this.props.plantSelectedId && 
                         < PlantDetails

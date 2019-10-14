@@ -33,7 +33,9 @@ const NavBar = (props) => {
             {...props}
           />
         </div>
-        {userStatus}
+        <div className={style.RightNav}>
+          {userStatus}
+        </div>
       </div>
     );
   };
